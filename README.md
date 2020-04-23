@@ -11,11 +11,12 @@ This is README for Node Boiler Plate.
 - [ ] APIs for todo (sample feature)
 - [x] update swagger docs
 - [x] redis and elasticsearch setup (establishing of connections)
-- [ ] Redis integration with APIs and services
+- [x] Redis use case and helper functions
 - [ ] Elastic search integration with APIs and services
 - [ ] Testing setup write sample tests
 - [ ] upgrade the mysql version (in docker container)
 - [ ] upgrade the node version for the application(in docker container setup)
+- [ ] Sentry integregration
 
 # File and Folder naming conventions
 
@@ -131,3 +132,18 @@ all validations can be found in `src/api/validation`
 - Controller methods should have call to services and send back the response.
 - All the business logic and interaction with Database layer is to be done in service layer.
 - Database layer interacts with DB. Interaction with elasticsearch, redis or anyother data storage is to be considered in database layer.
+
+# Using Redis
+
+Although none of the APIs use redis as of now. But some helper functions are written in `src/util/redis.js` to provide the idea how it's setup can be used.
+
+similarly you can use different commands or datastructure provided by redis to store data
+
+# Using elasticsearch
+
+Just like Redis, Integration of elasticsearch is project based and its use case. So to give an idea for elasticsearch sample code is present in boilerplate
+
+- ES maps -> code can be located in `src/elasticsearch` folder
+- ES functions and helpers -> code in files `src/service/esService.js` and `src/service/userEsService.js`
+
+**Although in order to initialise and use elasticsearch and redis in your project search for `TODO-SETUP-ES:` tag for elasticsearch and `TODO-SETUP-REDIS:` for redis in index.js respetively. **

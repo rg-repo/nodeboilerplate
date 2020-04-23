@@ -67,9 +67,6 @@ function addBulkDocument(esIndexName, processedInputData) {
         'lastName',
         'email',
         'phone',
-        'isAdmin',
-        'isLocked',
-        'isDeleted',
         'createdAt',
         'updatedAt'
       ])

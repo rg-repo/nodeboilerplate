@@ -17,7 +17,7 @@ module.exports = (app) => {
         basePath: '/api/'
       },
       explorer: true,
-      apis: [path.join(__dirname, '..', 'api', 'swagger-docs', '*.yaml')]
+      apis: [path.join(__dirname, '..', 'api', 'swagger_docs', '*.yaml')]
     };
 
     const swaggerSpecV1 = swaggerJSDoc(swaggerDefinitionV1);
