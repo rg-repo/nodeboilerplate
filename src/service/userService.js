@@ -28,7 +28,7 @@ UserService.updateUser = async (userObj) => {
   // check user existance, if not throw error
   const userExists = await userRepo.exists({ id });
   if (!userExists) {
-    throw createError.NotFound(i18n.__('USER_NOT_EXIST'));
+    throw new createError.NotFound(i18n.__('USER_NOT_EXIST'));
   }
   // update user
   await userRepo.updateUserByID(userObj, id);
@@ -39,7 +39,7 @@ UserService.deleteUser = async (id) => {
   // check user existance, if not throw error
   const userExists = await userRepo.exists({ id });
   if (!userExists) {
-    throw createError.NotFound(i18n.__('USER_NOT_EXIST'));
+    throw new createError.NotFound(i18n.__('USER_NOT_EXIST'));
   }
   return userRepo.updateUserByID({ deletedAt: new Date() }, id);
 };
@@ -49,7 +49,7 @@ UserService.changePassword = async (id, passwords) => {
   // check user existance, if not throw error
   const user = await userRepo.getUserByPk(id);
   if (!user) {
-    throw createError.NotFound(i18n.__('USER_NOT_EXIST'));
+    throw new createError.NotFound(i18n.__('USER_NOT_EXIST'));
   }
   // validate old password
   const validPassword = await bcrypt.compare(oldPassword, user.password);
@@ -66,7 +66,7 @@ UserService.createUser = async (user) => {
   // check of user with same email existence
   const userExists = await userRepo.getUserByEmail(user.email);
   if (userExists) {
-    throw createError.BadRequest(i18n.__('USER_WITH_EMAIL_EXISTS'));
+    throw new createError.BadRequest(i18n.__('USER_WITH_EMAIL_EXISTS'));
   } else {
     newUserObj.password = await getHashedPassword(user.password);
     const createdUserObj = await userRepo.createUser(newUserObj);
@@ -77,7 +77,7 @@ UserService.createUser = async (user) => {
 UserService.getUser = async (userId) => {
   const user = await userRepo.getUserByPk(userId);
   if (!user) {
-    throw createError.NotFound(i18n.__('USER_NOT_EXIST'));
+    throw new createError.NotFound(i18n.__('USER_NOT_EXIST'));
   }
   return user;
 };

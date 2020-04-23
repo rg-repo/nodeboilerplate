@@ -3,7 +3,8 @@ const logger = require('@src/server_setup/logging');
 const { prepareResponse } = require('@src/util/response');
 const createError = require('http-errors');
 
-module.exports = (err, req, res) => {
+// eslint-disable-next-line no-unused-vars
+module.exports = (err, req, res, next) => {
   logger.logError(err);
   let resMeta = {
     status: false,

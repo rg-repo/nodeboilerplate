@@ -5,21 +5,21 @@ paths:
         - User
       description: Get all users (not deleted)
       produces:
-      - application/json
+        - application/json
       parameters:
-      - name: x-auth-token
-        in: header
-        description: token to be passed in header
-        required: true
-        type: string
-      - name: page
-        in: query
-        description: Page Number
-        type: integer
-      - name: size
-        in: query
-        description: Number of records in a page
-        type: integer
+        - name: x-auth-token
+          in: header
+          description: token to be passed in header
+          required: true
+          type: string
+        - name: page
+          in: query
+          description: Page Number
+          type: integer
+        - name: size
+          in: query
+          description: Number of records in a page
+          type: integer
       responses:
         200:
           description: Users fetched successfully
@@ -36,14 +36,14 @@ paths:
         - User
       description: Register new user
       produces:
-      - application/json
+        - application/json
       parameters:
-      - in: body
-        name: user
-        description: UserRegister object
-        required: true
-        schema:
-          $ref: '#/definitions/UserRegister' 
+        - in: body
+          name: user
+          description: UserRegister object
+          required: true
+          schema:
+            $ref: '#/definitions/UserRegister'
       responses:
         200:
           description: User Registered
@@ -54,19 +54,19 @@ paths:
         - User
       description: Update user
       produces:
-      - application/json
+        - application/json
       parameters:
-      - name: x-auth-token
-        in: header
-        description: token to be passed in header
-        required: true
-        type: string
-      - in: body
-        name: user
-        description: UserUpdate object
-        required: true
-        schema:
-          $ref: '#/definitions/UserUpdate' 
+        - name: x-auth-token
+          in: header
+          description: token to be passed in header
+          required: true
+          type: string
+        - in: body
+          name: user
+          description: UserUpdate object
+          required: true
+          schema:
+            $ref: '#/definitions/UserUpdate'
       responses:
         200:
           description: User Updated
@@ -79,13 +79,13 @@ paths:
         - User
       description: Get logged in user
       produces:
-      - application/json
+        - application/json
       parameters:
-      - name: x-auth-token
-        in: header
-        description: token to be passed in header
-        required: true
-        type: string
+        - name: x-auth-token
+          in: header
+          description: token to be passed in header
+          required: true
+          type: string
       responses:
         200:
           description: User Fetched
@@ -100,19 +100,19 @@ paths:
         - User
       description: Delete user
       produces:
-      - application/json
+        - application/json
       parameters:
-      - name: x-auth-token
-        in: header
-        description: token to be passed in header
-        required: true
-        type: string
-      - in: path
-        name: id
-        description: ID of the user to delete
-        required: true
-        schema:
-          type: integer 
+        - name: x-auth-token
+          in: header
+          description: token to be passed in header
+          required: true
+          type: string
+        - in: path
+          name: id
+          description: ID of the user to delete
+          required: true
+          schema:
+            type: integer
       responses:
         200:
           description: User Deleted
@@ -122,6 +122,24 @@ paths:
           description: Access Forbidden
         400:
           description: Error
+    get:
+      tags:
+        - User
+      description: Get user based on id
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: id
+          description: ID of the user to fetch
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: User Fetched
+        404:
+          description: User not found
 
   /users/changePassword:
     post:
@@ -129,19 +147,19 @@ paths:
         - User
       description: Change user password
       produces:
-      - application/json
+        - application/json
       parameters:
-      - name: x-auth-token
-        in: header
-        description: token to be passed in header
-        required: true
-        type: string
-      - in: body
-        name: user
-        description: ChangePassword object
-        required: true
-        schema:
-          $ref: '#/definitions/UserChangePassword' 
+        - name: x-auth-token
+          in: header
+          description: token to be passed in header
+          required: true
+          type: string
+        - in: body
+          name: user
+          description: ChangePassword object
+          required: true
+          schema:
+            $ref: '#/definitions/UserChangePassword'
       responses:
         200:
           description: Password Changed
@@ -150,86 +168,7 @@ paths:
         400:
           description: Error
 
-  /users/uploadImage:
-    put:
-      tags:
-        - User
-      description: Upload user image
-      consumes:
-      - multipart/form-data
-      produces:
-      - application/json
-      parameters:
-      - name: x-auth-token
-        in: header
-        description: token to be passed in header
-        required: true
-        type: string
-      - in: formData
-        name: image
-        type: file
-        description: The file to upload. 
-      responses:
-        200:
-          description: Image Uploaded
-        401:
-          description: Token not provided
-        400:
-          description: Error
-
-  /users/addDocsToES:
-    put:
-      tags:
-        - User
-      description: Add User Documents to ES
-      produces:
-      - application/json
-      parameters:
-      - name: x-auth-token
-        in: header
-        description: token to be passed in header
-        required: true
-        type: string
-      responses:
-        200:
-          description: User Documents Added to ES
-        401:
-          description: Token not provided
-        403:
-          description: Access Forbidden
-        400:
-          description: Error
-    
-  /users/search:
-    post:
-      tags:
-        - User
-      description: Search User from ES
-      produces:
-      - application/json
-      parameters:
-      - name: x-auth-token
-        in: header
-        description: token to be passed in header
-        required: true
-        type: string
-      - in: body
-        name: user
-        description: UserSearch object
-        required: true
-        schema:
-          $ref: '#/definitions/UserSearch'
-      responses:
-        200:
-          description: Fetched user documents from ES
-        401:
-          description: Token not provided
-        403:
-          description: Access Forbidden
-        400:
-          description: Error
-
-definitions:              # Schema defination for request body        
+definitions: # Schema defination for request body
   UserRegister:
     properties:
       firstName:
@@ -242,15 +181,6 @@ definitions:              # Schema defination for request body
         type: string
       phone:
         type: string
-      isDeleted:
-        type: boolean
-        default: false
-      isAdmin:
-        type: boolean
-        default: false
-      isLocked:
-        type: boolean
-        default: false
   UserUpdate:
     properties:
       id:
@@ -263,28 +193,9 @@ definitions:              # Schema defination for request body
         type: string
       phone:
         type: string
-      isDeleted:
-        type: boolean
-        default: false
-      isAdmin:
-        type: boolean
-        default: false
-      isLocked:
-        type: boolean
-        default: false
   UserChangePassword:
     properties:
-      password:
+      oldPassword:
         type: string
       newPassword:
-        type: string
-      confirmNewPassword:
-        type: string
-  UserSearch:
-    properties:
-      page:
-        type: integer
-      size:
-        type: integer
-      query:
         type: string

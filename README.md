@@ -9,7 +9,7 @@ This is README for Node Boiler Plate.
 - [x] middleware to validate APIs (body, query params and route params) with message translation
 - [x] APIs for Users (CRUD for users, login)
 - [ ] APIs for todo (sample feature)
-- [ ] update swagger docs
+- [x] update swagger docs
 - [x] redis and elasticsearch setup (establishing of connections)
 - [ ] Redis integration with APIs and services
 - [ ] Elastic search integration with APIs and services
@@ -20,7 +20,7 @@ This is README for Node Boiler Plate.
 # File and Folder naming conventions
 
 naming conventions are invoked from
-https://github.com/airbnb/javascript#naming-conventions
+[here](https://github.com/airbnb/javascript#naming-conventions)
 in crux from the article
 
 - folder names are to be in snake case

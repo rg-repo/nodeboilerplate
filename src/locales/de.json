@@ -70,18 +70,13 @@
   "joi.user.newPassword.string.min": "New Password should be of minimum 5 characters. in GERMAN",
   "joi.user.newPassword.string.max": "New Password cannot be more than 45 characters. in GERMAN",
   "joi.user.newPassword.any.empty": "New Password cannot be empty. in GERMAN",
-  "joi.user.confirmNewPassword.string.base": "Confirm New Password should be a string. in GERMAN",
-  "joi.user.confirmNewPassword.any.required": "Confirm New Password is required. in GERMAN",
-  "joi.user.confirmNewPassword.string.min": "Confirm New Password should be of minimum 5 characters. in GERMAN",
-  "joi.user.confirmNewPassword.string.max": "Confirm New Password cannot be more than 45 characters. in GERMAN",
-  "joi.user.confirmNewPassword.any.empty": "Confirm New Password cannot be empty. in GERMAN",
-  "joi.user.confirmNewPassword.any.allowOnly": "New Passwords do not match. in GERMAN",
   "LIMIT_FILE_SIZE": "File size can not be greater than 5 MB. in GERMAN",
   "LIMIT_FILE_COUNT": "Multiple files cannot be uploaded. in GERMAN",
   "FILE_TYPE_NOT_ALLOWED": "Only JPG, PNG, JPEG files are allowed. in GERMAN",
   "FILE_UPLOADED": "File uploaded successfully. in GERMAN",
   "DOCS_ADDED_TO_ES": "All documents added to elasticsearch successfully. in GERMAN",
   "SEARCHED_USERS_FETCHED": "Searched users fetched successfully. in GERMAN",
-  "joi.auth.page`.object.unknown": "Page needs to be accompanied with size query. in GERMAN",
-  "joi.auth.size`.object.unknown": "Size needs to be accompanied with page query. in GERMAN"
+  "joi.auth.size.object.and": "Size is required. in GERMAN",
+  "joi.auth.page.object.and": "Page is required. in GERMAN",
+  "joi.auth.email.any.required": "email is Required. in GERMAN"
 }

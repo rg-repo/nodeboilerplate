@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const logger = require('./logging');
 
 process.on('unhandledRejection', (reason, promise, res) => {
