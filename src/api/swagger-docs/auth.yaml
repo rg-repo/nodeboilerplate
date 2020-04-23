@@ -1,0 +1,28 @@
+paths:
+  /auth:
+    post:
+      tags:
+        - Login
+      description: User Login
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: user
+        description: UserLogin object
+        required: true
+        schema:
+          $ref: '#/definitions/UserLogin' 
+      responses:
+        200:
+          description: User logged in
+        400:
+          description: Error
+
+definitions:              # Schema defination for request body        
+  UserLogin:
+    properties:
+      email:
+        type: string
+      password:
+        type: string
